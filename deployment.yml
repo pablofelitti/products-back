@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: products-back-deployment
+  labels:
+    app: products-back
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: products-back
+  template:
+    metadata:
+      labels:
+        app: products-back
+    spec:
+      containers:
+        - name: products-back
+          image: pablofelitti/products-back:latest
+          ports:
+            - containerPort: 8080
