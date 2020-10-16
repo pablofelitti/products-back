@@ -19,9 +19,15 @@ spec:
           image: pablofelitti/products-back:1.1
           ports:
             - containerPort: 8080
-          livenessProbe:
+          livenessProbe: # indicates if the container is running. If the check fails, container is restarted
             httpGet:
               path: /actuator/health
               port: 8080
-            initialDelaySeconds: 10
+            initialDelaySeconds: 15
+            timeoutSeconds: 5
+          readinessProbe: # indicates if the container is ready to serve requests. If the check fails, container is removed from service
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 15
             timeoutSeconds: 5
