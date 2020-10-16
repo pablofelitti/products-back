@@ -8,7 +8,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-Have minikube and Docker installed locally
+No prerequisites to test locally
+
+To test deployments have Minikube and Docker installed
 
 ### Running in local environment
 
@@ -28,9 +30,9 @@ This involves creating a Docker image and deploying it to Kubernetes
 
 ### Pushing image to Docker Hub
 
-```docker tag <image_id> pablofelitti/products-back```
+```docker tag <image_id> pablofelitti/products-back:<next_version>```
 
-```docker push pablofelitti/products-back```
+```docker push pablofelitti/products-back:<next_version>```
 
 ### Deploying to Kubernetes
 
