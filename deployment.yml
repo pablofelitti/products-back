@@ -16,6 +16,12 @@ spec:
     spec:
       containers:
         - name: products-back
-          image: pablofelitti/products-back:latest
+          image: pablofelitti/products-back:1.1
           ports:
             - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /actuator/health
+              port: 8080
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
