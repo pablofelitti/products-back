@@ -10,7 +10,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 No prerequisites to test locally
 
-To test deployments have Minikube and Docker installed
+To test deployments have Minikube, Docker and HELM installed
 
 ### Running in local environment
 
@@ -22,7 +22,7 @@ To check if the app is running try
 
 ## Deployment
 
-This involves creating a Docker image and deploying it to Kubernetes
+This involves creating a Docker image and deploying it to a local Minikube Kubernetes instance using HELM
 
 ### Creating Docker image
 
@@ -34,17 +34,11 @@ This involves creating a Docker image and deploying it to Kubernetes
 
 ```docker push pablofelitti/products-back:<next_version>```
 
-### Deploying to Kubernetes
+### Deploying to Kubernetes via HELM
 
-Run these commands in the root of the project
+Run this command in the root of the project
 
-```kubectl apply -f deployment.yml```
-
-```kubectl apply -f service.yml```
-
-To check if the app is running
-
-```curl <your_minikube_ip>:30007```
+```helm install products-back products-back-chart/```
 
 ## Built With
 
@@ -53,3 +47,4 @@ To check if the app is running
 * [H2](https://www.h2database.com/html/main.html) - In memory database
 * [Docker](https://www.docker.com/) - Containers to deploy the app
 * [Kubernetes](https://kubernetes.io/) - Platform to host containers
+* [HELM](https://helm.sh/) - Package manager for Kubernetes
